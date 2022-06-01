@@ -1,0 +1,101 @@
+body{
+    color:white;
+    background-color: #777777;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color:white;
+}
+
+.header {
+    width:100%;
+    background-color: #333333;
+    height:55px;
+    color:white;
+    display: flex;
+}
+
+.header p {
+    margin-bottom:5px;
+}
+
+.header img {
+    width:30px;
+    height:30px;
+    padding: 15px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height:500px;
+    background-color: #777777;
+}
+
+.sidebar-area, .users-area {
+    background-color: #777777;
+}
+.sidebar-area {
+    width:20%;
+    height: 300px;
+    border-right: 2px solid rgb(153, 150, 150);
+}
+
+.users-area {
+    width:70%;
+}
+
+.search-area, .add-area {
+    position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.search-area input,
+.add-area input {
+    font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid rgb(153, 150, 150);
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.search-area ::placeholder,
+.add-area ::placeholder {
+    color:white;
+    opacity: 0.4;
+}
+.search-area :placeholder-shown,
+.add-area :placeholder-shown {
+    font-size: 13x;
+    cursor:text;
+    top:20px;
+}
+
+.user {
+    height:auto;
+    vertical-align:middle;
+    border:2px solid rgb(153, 150, 150);
+    margin:30px 0 8px 0;
+    padding: 5px;
+    width:70%
+}
+
+.container .Button {
+    color:black;
+    width: 80px;
+    padding:5px;
+    
+}
