@@ -10,11 +10,13 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   linkBtn: {
+    textDecoration:'none',
     display: 'flex',
-    backgroundColor: 'red',
     color: 'white',
+    justifyContent:'center',
     '&:hover': {
-      backgroundColor: 'green'
+      backgroundColor: 'white',
+      color:'grey'
     }
   },
 }));

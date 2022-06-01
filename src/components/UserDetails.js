@@ -12,18 +12,18 @@ function UserDetails() {
   const users = useSelector(selectUsers);
  
   let { id } = useParams();
-
+  console.log(id)
   const [] = useReducer()
 
   const user = useMemo (()=> {
     return users.find((user)=> user.id === parseInt(id))
   },[users]) 
+  console.log(user.title)
 
   useEffect(() => {
     dispatch(getUsers())
   },[])
   
-  //console.log(user)  
   const dispatch=useDispatch();
   const history =  useHistory();
 
@@ -35,8 +35,8 @@ function UserDetails() {
     setValue
   } = useForm({
     defaultValues:{
-      nameUpdated: user.title,
-      emailUpdated:user.description
+      nameUpdated: user.name,
+      emailUpdated:user.email
     }
   })
 
@@ -47,42 +47,31 @@ function UserDetails() {
   const editHandler = (id) => {
     const changedUser = users.map((item) => {
       if(item.id === id) {
-        return {...item, title: watch('nameUpdated'), description:watch('emailUpdated')}
+        return {...item, name: watch('nameUpdated'), email:watch('emailUpdated')}
       }else {
         return {...item}
       }
     }) 
     
-    dispatch(updateUser(changedUser)).then(()=>{dispatch(getUsers());history.push("/")})
+    //dispatch(updateUser(changedUser)).then(()=>{dispatch(getUsers());history.push("/")})
 
    dispatch(setUsersList(changedUser));
     history.push("/");
-    //console.log(changedUser)
+    console.log(changedUser)
   }
-
-  console.log(watch())
 
 
   return (
     <div> 
-      {/* <div>{user?.name }</div> */}
 
       <div className='header'>
         <img src={menu} alt="Logo" /><p><Link to="/">Phonebook</Link></p>
       </div>
     <div className='search-area'>
-      {/* <input 
-          // type="text" 
-          // value={updatedName} 
-          // onChange={(e)=>setUpdatedName(e.target.value)}
-        
-          
-        /> */}
 
         <TextField
           id="standard-helperText"
           label="Helper text"
-          // defaultValue="Default Value"
           helperText="Default value"
           variant="standard"
           onChange={(event) => setValue("nameUpdated",event.target.value)}
@@ -90,21 +79,9 @@ function UserDetails() {
         />
 
 
-        {/* <input 
-          // type="text" 
-          // value={updatedEmail}  
-          // onChange={(e)=>setUpdatedEmail(e.target.value)}
-
-          
-
-          
-
-        />   */}
-
         <TextField
           id="standard-helperText"
           label="Helper text"
-          // defaultValue="Default Value"
           helperText="Default value"
           variant="standard"
           {...register("emailUpdated")}
