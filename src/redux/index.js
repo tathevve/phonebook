@@ -1,9 +1,11 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import appReducer from './slicers/app';
+import adminReducer from './slicers/adminSlice';
 
 
 const combinedReducers = combineReducers({
   app: appReducer,
+  admin:adminReducer,
 });
 
 const rootReducer = (state, action) =>

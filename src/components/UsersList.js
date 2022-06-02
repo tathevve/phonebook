@@ -7,16 +7,18 @@ import { Link } from "react-router-dom";
 import menu from '../menu.png';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from '@mui/styles';
+import Header from './Header';
 
 const useStyles = makeStyles((theme) => ({
   linkBtn: {
+    padding:'15px',
     textDecoration:'none',
     display: 'flex',
-    color: 'white',
+    color: 'grey',
     justifyContent:'center',
     '&:hover': {
-      backgroundColor: 'white',
-      color:'grey'
+      backgroundColor: 'grey',
+      color:'white'
     }
   },
 }));
@@ -61,9 +63,7 @@ function UsersList() {
 
   return (
     <div>
-      <div className='header'>
-        <img src={menu} alt="Logo" /><p><Link to="/">Phonebook</Link></p>
-      </div>
+      <Header />
       <div className='main-content'>
         <div className='sidebar-area'>
           <ul>
@@ -73,9 +73,9 @@ function UsersList() {
             <li>
               <Link to="/create-user" className={styles.linkBtn} underline="none">Create new Contact </Link>
             </li>
-            {/* <li>
-              <Link to="/user/:id">User detls</Link>
-            </li> */}
+            <li>
+              <Link to="/admin-page"  className={styles.linkBtn} underline="none">Admin Page</Link>
+            </li>
           </ul>
         </div>
         <div className='users-area'>

@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
+import Header from './Header';
 
 
 function CreateUser() {
@@ -68,9 +69,7 @@ function CreateUser() {
   return (
     <div>
 
-      <div className='header'>
-        <img src={menu} alt="Logo" /><p><Link to="/">Phonebook</Link></p>
-      </div>
+     <Header />
       <Box
         component="form"
         sx={{

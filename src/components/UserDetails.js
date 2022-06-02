@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SaveIcon from '@mui/icons-material/Save';
+import Header from './Header';
 
 function UserDetails() {
   const users = useSelector(selectUsers);
@@ -64,9 +65,7 @@ function UserDetails() {
   return (
     <div> 
 
-      <div className='header'>
-        <img src={menu} alt="Logo" /><p><Link to="/">Phonebook</Link></p>
-      </div>
+      <Header />
     <div className='search-area'>
 
         <TextField

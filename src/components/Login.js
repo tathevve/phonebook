@@ -11,7 +11,10 @@ import { Controller, useForm } from "react-hook-form";
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectAdmin } from '../redux/slicers/adminSlice';
+import a from "../assets/dreamer.svg";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const FlexBox = styled(Box)(() => ({
     display: 'flex',
@@ -53,6 +56,8 @@ const Login = () => {
     const history = useHistory()
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
+    const admin = useSelector(selectAdmin);
+
 
 
     useEffect(() => {
@@ -70,14 +75,14 @@ const Login = () => {
         control,
     } = useForm({
         defaultValues: {
-            email: 'a@mail.ru',
-            password: 'dummyPass',
+            email: admin.email,
+            password: admin.password,
 
         }
     });
 
     const onSubmit = (formData) => {
-        if (formData.email === 'a@mail.ru' && formData.password === 'dummyPass') {
+        if (formData.email === admin.email && formData.password ===  admin.password) {
 
             localStorage.setItem('authorized', true);
 
@@ -86,6 +91,8 @@ const Login = () => {
 
     }
 
+    
+
     return (
         <PageLook>
             <Card className="card">
@@ -93,7 +100,7 @@ const Login = () => {
                     <Grid item lg={5} md={5} sm={5} xs={12}>
                         <JustifyBox p={4} height="100%">
                             <IMG
-                                src="/assets/images/illustrations/dreamer.svg"
+                                src={a}
                                 alt=""
                             />
                         </JustifyBox>
@@ -114,7 +121,7 @@ const Login = () => {
                                     name="password"
                                     type="password"
                                     render={({ field }) => (
-                                        <TextField {...field} sx={{ mb: '12px', width: '100%' }} />
+                                        <TextField type='password' {...field} sx={{ mb: '12px', width: '100%' }} />
                                     )}
                                 />
                                 <Controller
@@ -124,7 +131,7 @@ const Login = () => {
                                         <FormControlLabel control={<Checkbox defaultChecked />} label="Remeber me" />
                                     )}
                                 />
-
+                                
                                 {message && (
                                     <p sx={{ color: 'red' }}>
                                         {message}
