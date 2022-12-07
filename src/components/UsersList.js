@@ -40,7 +40,7 @@ function UsersList() {
     dispatch(getUsers()).finally(() => {
       setLoading(true)
     })
-  }, [])
+  }, [dispatch])
 
   const removeItem = (user) => {
 
@@ -50,11 +50,11 @@ function UsersList() {
   }
 
   const searchUsers = (event) => {
-
+    console.log(event.target.value);
     dispatch(searchUser(event.target.value.toLowerCase()));
 
     if (event.target.value) {
-      dispatch(setUsersList(users.filter(val => (val.title.toLowerCase().includes(event.target.value.toLowerCase())))))
+      dispatch(setUsersList(users?.filter(val => (val.name?.toLowerCase().includes(event.target.value.toLowerCase())))))
     } else {
       dispatch(getUsers())
     }

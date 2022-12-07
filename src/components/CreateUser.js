@@ -89,13 +89,13 @@ function CreateUser() {
 
               // defaultValue="Hello World"
               variant="outlined"
-              // error={!!errors?.nameNew}
+              error={!!errors?.nameNew}
               {...register("nameNew", { required: "Valodik" })}
               label="add new contact's name"
             />
-            {/* {errors?.nameNew && (
+            {errors?.nameNew && (
               <p>{errors?.nameNew?.message}</p>
-            )} */}
+            )}
 
 
             <TextField
